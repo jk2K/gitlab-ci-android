@@ -1,13 +1,27 @@
+image: jk2K/gitlab-ci-android
+
+before_script:
+  - chmod +x gradlew
+
 stages:
   - build
-  - push
 
-build:
+debug:
   stage: build
+  except:
+    - release
   script:
-    - docker build -t registry.faked.org/gitlab-ci/android:latest .
+    - ./gradlew assembleDebug
+  artifacts:
+    paths:
+    - app/build/outputs/apk/app-debug.apk
 
-push:
-  stage: push
+release:
+  stage: build
+  only:
+    - release
   script:
-    - docker push registry.faked.org/gitlab-ci/android:latest
+    - ./gradlew assembleRelease
+  artifacts:
+    paths:
+    - app/build/outputs/apk/app-release.apk
