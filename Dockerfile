@@ -13,9 +13,10 @@ ENV ANDROID_HOME "/sdk"
 ENV PATH "$PATH:${ANDROID_HOME}/tools"
 
 RUN apk add --no-cache \
-    openjdk8
+    openjdk8 \
+    unzip
 
 ADD http://dl.google.com/android/repository/tools_r${VERSION_SDK_TOOLS}-linux.zip /tools.zip
-RUN mkdir /sdk && tar xzv /tools.zip -C /sdk && \
+RUN unzip /tools.zip -d /sdk && \
     rm -v /tools.zip
 RUN echo y | android update sdk -u -a -t ${SDK_PACKAGES}
