@@ -14,6 +14,9 @@ ENV PATH "$PATH:${ANDROID_HOME}/tools"
 
 RUN apk add --no-cache \
     openjdk8 \
+    curl \
+    ca-certificates \
+    bash \
     unzip
 
 ADD http://dl.google.com/android/repository/tools_r${VERSION_SDK_TOOLS}-linux.zip /tools.zip
