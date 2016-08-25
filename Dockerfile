@@ -17,6 +17,7 @@ RUN apk add --no-cache \
     curl \
     ca-certificates \
     bash \
+    libstdc++ \
     unzip
 
 ADD http://dl.google.com/android/repository/tools_r${VERSION_SDK_TOOLS}-linux.zip /tools.zip
