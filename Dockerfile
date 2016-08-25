@@ -1,6 +1,6 @@
 # https://github.com/jk2K/gitlab-ci-android
 
-FROM alpine:3.4
+FROM openjdk:8-jdk-alpine
 MAINTAINER jk2K <jk2K.com>
 
 ENV VERSION_SDK_TOOLS "25.1.7"
@@ -13,7 +13,6 @@ ENV ANDROID_HOME "/sdk"
 ENV PATH "$PATH:${ANDROID_HOME}/tools"
 
 RUN apk add --no-cache \
-    openjdk8 \
     curl \
     ca-certificates \
     bash \
