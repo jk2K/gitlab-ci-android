@@ -20,7 +20,7 @@ RUN apt-get -qq update && \
     unzip \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD http://dl.google.com/android/repository/tools_r${VERSION_SDK_TOOLS}-linux.zip /tools.zip
+ADD https://dl.google.com/android/repository/tools_r${VERSION_SDK_TOOLS}-linux.zip /tools.zip
 RUN unzip /tools.zip -d /sdk && \
     rm -v /tools.zip
 RUN echo y | android update sdk -u -a -t ${SDK_PACKAGES}
